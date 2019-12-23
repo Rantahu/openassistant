@@ -1,44 +1,30 @@
-# OpenAssistant 0.04
-# 2016 General Public License V3
-# By Andrew Vavrek, Clayton G. Hobbs, Jezra, Jonathan Kulp
+# https://pythonhosted.org/an_example_pypi_project/setuptools.html
 
-# setup.py - OpenAssistant Initialization
+import os
+from setuptools import setup, find_packages
 
-from setuptools import setup
-
-with open("README.rst") as file:
-    long_description = file.read()
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name = "OpenAssistant",
-    version = "0.04",
-    author = "Andrew Vavrek, Clayton G. Hobbs, Jezra, Jonathan Kulp",
+    name = "oa",
+    version = "next",
+    author = "Open Assistant Group",
     author_email = "info@openassistant.org",
-    description = ("Open Source AI Systems"),
-    license = "GPLv3+",
-    keywords = "ai personal assistant voice control command",
-    url = "https://github.com/vavrek/openassistant",
-    packages = ['OpenAssistant'],
-    long_description = long_description,
+    description = ("An open framework for creating digital assistants."),
+    license = "BSD",
+    keywords = "assistant agent ai framework",
+    url = "https://openasssitant.org",
+    packages = find_packages(),
+    long_description = read('README.md'),
+    project_urls = {
+        "Bug Tracker": "",
+        "Documentation": "",
+        "Source Code": "",
+    },
     classifiers = [
-        "Development Status :: 3 - Alpha",
-        "Environment :: X11 Applications :: GTK",
-        "Intended Audience :: End Users/Desktop",
-        "License :: OSI Approved :: GNU General Public License v3 or later "
-            "(GPLv3+)",
-        "Operating System :: POSIX :: Linux",
-        "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.5",
-        "Topic :: Open Source AI"
+        'Development Status :: 3 - Alpha',
+        'Topic :: Utilities',
+        'License :: OSI Approved :: BSD License',
     ],
-    install_requires=["requests"],
-    data_files = [
-        ("./img", ["icon_inactive.png", "icon.png",
-            "./etc/commands.json"])
-    ],
-    entry_points = {
-        "console_scripts": [
-            "assist=bin.core:run"
-        ]
-    }
 )

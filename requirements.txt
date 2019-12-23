@@ -1,0 +1,10 @@
+feedparser
+keyboard
+numpy
+playsound
+pocketsphinx
+psutil
+python-forecastio
+pyttsx3
+requests
+sounddevice
